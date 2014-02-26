@@ -20,12 +20,14 @@ void draw()
   background(0);
   /*** Update Globe ***/
   globe.update();
+  
+  /*** Leap Motion Control ***/
+  if ( leap.getHands().size() > 0 )
+  {
+    Hand firstHand = leap.getHands().get(0);
+    firstHand.draw();
+    globe.rotateHorizontally(firstHand.getPosition().x * 360 / width);
+    globe.rotateVertically(firstHand.getPosition().y * 360 / height);
+  }
 }
 
-void mouseMoved()
-{
-  globe.rotateHorizontally(float(mouseX * 360 / width));
-  
-  globe.rotateVertically(float(mouseY * 360 / height));
-  //println(mouseX);
-}
