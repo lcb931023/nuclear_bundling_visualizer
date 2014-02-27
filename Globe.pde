@@ -4,8 +4,7 @@ class Globe
   float rotateHor = .0;
   float rotateVer = .0;
   float speed = 1;
-  int radius = 50;
-  
+  int radius = 80;
   boolean flicker = true;
   float flickerNoiseX = 0.0;
   
@@ -75,17 +74,29 @@ class Globe
     float _lng = radians(lng);
     
     stroke(223, 116, 12);
-    float x1 = radius * cos(_lat) * cos(_lng);
-    float y1 = radius * sin(_lat) * (-1);
-    float z1 = radius * cos(_lat) * sin(_lng);
+    PVector v1 = toPointOnGlobe(lat, lng);
     
     float x2 = (radius + 20) * cos(_lat) * cos(_lng);
     float y2 = (radius + 20) * sin(_lat) * (-1);
     float z2 = (radius + 20) * cos(_lat) * sin(_lng);
     
-    line(x1, y1, z1, x2, y2, z2);
-    
+    line(v1.x, v1.y, v1.z, x2, y2, z2);
   }
+  
+  // Get the PVector location of a point on the globe
+ private PVector toPointOnGlobe(float lat, float lng)
+ {
+    float _lat = radians(lat) * -1;
+    float _lng = radians(lng);
+    
+    float x = radius * cos(_lat) * cos(_lng);
+    float y = radius * sin(_lat) * (-1);
+    float z = radius * cos(_lat) * sin(_lng);
+    
+    return new PVector(x, y, z);
+ }
+ 
+ 
   
   public void rotateHorizontally( float degree )
   {
@@ -94,6 +105,11 @@ class Globe
   public void rotateVertically( float degree )
   {
     rotateVer = degree;
+  }
+  
+  public void zoom( float z )
+  {
+    
   }
   
 }
