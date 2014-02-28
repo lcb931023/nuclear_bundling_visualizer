@@ -33,10 +33,27 @@ class Globe
     
     // Draw the globe
     this.render();
-    // Placing geodata on the globe
-    // e.g. New York 41°N,74°W
+    // Locate geodata on the globe
+    // NEW YORK
     this.placeGeoData(41, -74);
-    
+    // WASHINGTON
+    this.placeGeoData(38, -77);
+    // BEIJING
+    this.placeGeoData(39, 116);
+    // SHANGHAI
+    this.placeGeoData(31, 121);
+    // PARIS
+    this.placeGeoData(48, 2);
+    // MOSCOW
+    this.placeGeoData(55, 37);
+    // LONDON
+    this.placeGeoData(51, 0);
+    // NEW DEIHI
+    this.placeGeoData(28, 77);
+    // PYONGYANG
+    this.placeGeoData(39, 125);
+    // ISLAMABAD
+    this.placeGeoData(33, 73);
   }
   
   private void render()
@@ -76,11 +93,21 @@ class Globe
     stroke(223, 116, 12);
     PVector v1 = toPointOnGlobe(lat, lng);
     
-    float x2 = (radius + 20) * cos(_lat) * cos(_lng);
-    float y2 = (radius + 20) * sin(_lat) * (-1);
-    float z2 = (radius + 20) * cos(_lat) * sin(_lng);
+    float x2 = (radius + 10) * cos(_lat) * cos(_lng);
+    float y2 = (radius + 10) * sin(_lat) * (-1);
+    float z2 = (radius + 10) * cos(_lat) * sin(_lng);
     
     line(v1.x, v1.y, v1.z, x2, y2, z2);
+    
+    // Draw Circle
+    pushMatrix();
+    translate(v1.x, v1.y, v1.z);
+    noFill();
+    ellipse(0, 0, 5, 5);
+    ellipse(0, 0, 8, 8);
+    ellipse(0, 0, 10, 10);
+    popMatrix();
+    
   }
   
   // Get the PVector location of a point on the globe
@@ -96,7 +123,11 @@ class Globe
     return new PVector(x, y, z);
  }
  
- 
+ // [TODO]
+ private void drawCurveOnSphere(float lat1, float lng1, float lat2, float lng2)
+ {
+   
+ }
   
   public void rotateHorizontally( float degree )
   {
