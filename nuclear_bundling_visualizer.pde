@@ -54,11 +54,12 @@ void draw()
   popMatrix();
   pushMatrix();
   /*** Leap Motion Control ***/
-  
+
   if ( !leap.isConnected() )
   { 
     useMouse = true;
-  }else{
+  }
+  else {
     useMouse = false;
   }
   if ( !useMouse )
@@ -71,7 +72,7 @@ void draw()
       globe.rotateVertically(firstHand.getPosition().y * 360 / height);
     }
   }
-  
+
   popMatrix();
 }
 
@@ -83,3 +84,4 @@ void mouseMoved()
     globe.rotateVertically(mouseY * 360 / height);
   }
 }
+

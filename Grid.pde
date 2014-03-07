@@ -9,7 +9,7 @@ class Grid
     rowAmount = int(width / gWidth);
     colAmount = int(height / gHeight);
   }
-  
+
   // Gets called each draw();
   public void update()
   {
@@ -23,8 +23,5 @@ class Grid
       }
     }
   }
-  
-  
-  
-  
 }
+

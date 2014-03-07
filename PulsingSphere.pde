@@ -13,7 +13,7 @@ class PulsingSphere
   {
     sphereCenter = pCenter;
   }
-  
+
   // Gets called each draw();
   public void update()
   {
@@ -35,8 +35,5 @@ class PulsingSphere
     pulseNoiseX += 0.31;
     sphere( 5 + radius * noise(pulseNoiseX) );
   }
-  
-  
-  
-  
 }
+

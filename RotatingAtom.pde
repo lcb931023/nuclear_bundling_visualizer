@@ -16,7 +16,7 @@ class RotatingAtom
     rSpeed = speed;
     radius = pRadius;
   }
-  
+
   // Gets called each draw();
   public void update()
   {
@@ -42,8 +42,5 @@ class RotatingAtom
     }
     endShape(CLOSE);
   }
-  
-  
-  
-  
 }
+
