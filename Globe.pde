@@ -99,9 +99,22 @@ class Globe
     
     line(v1.x, v1.y, v1.z, x2, y2, z2);
     
+    // #MAGICAL 3D ROTATION
+    // 1. Since all discs are drawn on x and y only, suppose a vector is pointing out normal to the disc (the x and y plane)
+    PVector discNormal = new PVector(0,0,1);
+    // 2. Because rotate() rotates an angle around an axis (could be a vector),
+    //    We need to rotate the disc on the plane the disc and a [line that points from middle of sphere to the point on globe] forms
+    PVector line = toPointOnGlobe(lat, lng);
+    line.normalize();
+    //    (cont. 2) and to do that, we get the vector normal to such plane using cross()
+    PVector axis = line.cross(discNormal);
+    // 3. find the angle that needs to be rotated
+    float ang = PVector.angleBetween(line, discNormal);
+    
     // Draw Circle
     pushMatrix();
     translate(v1.x, v1.y, v1.z);
+    rotate(-ang,axis.x,axis.y,axis.z);
     noFill();
     ellipse(0, 0, 5, 5);
     ellipse(0, 0, 8, 8);
