@@ -3,6 +3,8 @@ nuclear_bundling_visualizer
 
 Leap Motion enabled Sci-fi styled 3D Nuclear Bundling System Visualizer 
 
+*Work In Progress. Currently just a really cool globe with locations marked.*
+
 Ever heard of Nuclear Bundling Theory? It says that if a country gets attacked by a nuclear weapon, and its headquarter gets wiped-out, it would strike every nation that has nuclear weapon.
 
 Imagine what would happen if every nuclear enabled country has such system, and one of these countries got their headquarter wiped out by a nuclear strike... 
