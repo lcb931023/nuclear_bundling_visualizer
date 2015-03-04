@@ -1,6 +1,7 @@
-import de.voidplus.leapmotion.*;
+// TODO: Fix leap control
+//import de.voidplus.leapmotion.*;
 
-LeapMotion leap;
+//LeapMotion leap;
 Grid grid;
 Globe globe;
 PulsingSphere pulsingSphere;
@@ -16,7 +17,7 @@ void setup()
   size(960, 560, P3D);
   frameRate(30);
   smooth();
-  leap = new LeapMotion(this);
+  //leap = new LeapMotion(this);
   /*** Create Globe ***/
   globe = new Globe();
   globeCenter = new PVector(width/2, height/2, 300);
@@ -54,7 +55,8 @@ void draw()
   popMatrix();
   pushMatrix();
   /*** Leap Motion Control ***/
-
+  useMouse = true;
+/*
   if ( !leap.isConnected() )
   { 
     useMouse = true;
@@ -72,7 +74,7 @@ void draw()
       globe.rotateVertically(firstHand.getPosition().y * 360 / height);
     }
   }
-
+*/
   popMatrix();
 }
 
