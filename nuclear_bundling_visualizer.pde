@@ -23,12 +23,12 @@ void setup()
   globe = new Globe();
   globeCenter = new PVector(width/2, height/2, 300);
   /*** Other things to be created ***/
-  grid = new Grid();
+//  grid = new Grid();
   pulsingSphere = new PulsingSphere(globeCenter);
   rotatingAtom1 = new RotatingAtom(globeCenter, new PVector(40, 70, 130), 30, 5);
   rotatingAtom2 = new RotatingAtom(globeCenter, new PVector(70, 130, 40), 35, 6);
   rotatingAtom3 = new RotatingAtom(globeCenter, new PVector(130, 40, 70), 25, 8);
-  
+  strokeWeight(1);
   leap = new LeapMotion(this);
 }
 
@@ -37,7 +37,7 @@ void draw()
   background(255);
   pushMatrix();
   /*** Update background grid ***/
-  grid.update();
+//  grid.update();
   popMatrix();
   pushMatrix();
   /*** Update Globe ***/
@@ -76,7 +76,7 @@ void draw()
       firstHand.drawSphere();
       globe.rotateHorizontally(firstHand.getPosition().x * 360 / width);
       globe.rotateVertically(firstHand.getPosition().y * 360 / height);
-      globe.zoom( firstHand.getPosition().z * 10 );
+      globe.zoom( firstHand.getPosition().z * 3 + 400 );
     }
   }
 

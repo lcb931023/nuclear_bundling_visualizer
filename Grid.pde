@@ -15,7 +15,8 @@ class Grid
   {
     noFill();
 //    stroke(111, 195, 223, 255);
-    stroke(0, 56, 111);
+//    stroke(0, 175, 216);
+    stroke(0);
     for (int col = 0; col < colAmount; col ++ )
     {
       for (int row = 0; row < rowAmount; row ++)

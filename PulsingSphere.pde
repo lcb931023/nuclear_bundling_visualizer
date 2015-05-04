@@ -22,7 +22,8 @@ class PulsingSphere
     // Appearance
     noFill();
 //    stroke(111, 195, 223, 255);
-    stroke(0, 56, 111);
+//    stroke(0, 175, 216);
+    stroke(0);
     // Spin it
     roll = random(360);
     pitch = random(360);

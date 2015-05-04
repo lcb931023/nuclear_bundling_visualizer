@@ -62,7 +62,7 @@ class Globe
     if (flicker)
     {
       float noiseScale = 0.3;
-      alpha = noise(flickerNoiseX * noiseScale) * 100 + 155;
+      alpha = noise(flickerNoiseX * noiseScale) * 200 + 55;
       
       flickerNoiseX ++;
     }
@@ -79,7 +79,8 @@ class Globe
           float y = (radius + c * 0.02) * sin(_lat) * (-1);
           float z = (radius + c * 0.02) * cos(_lat) * sin(_lng);
           // The cyan of TRON is 111, 195, 223
-          stroke(0, 56, 111, alpha);
+//          stroke(0, 175, 216, alpha);
+          stroke(0, alpha);
           point(x, y, z);
         }
       }
@@ -91,7 +92,7 @@ class Globe
     float _lat = radians(lat) * -1;
     float _lng = radians(lng);
 
-    stroke(223, 116, 12);
+    stroke(245, 72, 31);
     PVector v1 = toPointOnGlobe(lat, lng);
 
     float x2 = (radius + 10) * cos(_lat) * cos(_lng);
