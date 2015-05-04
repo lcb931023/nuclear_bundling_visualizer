@@ -72,6 +72,7 @@ void draw()
       firstHand.draw();
       globe.rotateHorizontally(firstHand.getPosition().x * 360 / width);
       globe.rotateVertically(firstHand.getPosition().y * 360 / height);
+      globe.zoom(firstHand.getPosition().z * 10);
     }
   }
 

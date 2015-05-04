@@ -7,6 +7,7 @@ class Globe
   int radius = 80;
   boolean flicker = true;
   float flickerNoiseX = 0.0;
+  float leapZoom = 300;
 
   public Globe()
   {
@@ -21,7 +22,7 @@ class Globe
   // Gets called each draw();
   public void update()
   {
-    translate(width/2, height/2, 300);
+    translate(width/2, height/2, leapZoom);
     // Update Rotation
     //rotateHor+=speed;
     // Horizontal rotation
@@ -150,6 +151,7 @@ class Globe
 
   public void zoom( float z )
   {
+    leapZoom = z;
   }
 }
 
