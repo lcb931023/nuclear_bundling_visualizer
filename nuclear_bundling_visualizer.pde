@@ -1,7 +1,6 @@
 // TODO: Fix leap control
-//import de.voidplus.leapmotion.*;
-
-//LeapMotion leap;
+import de.voidplus.leapmotion.*;
+LeapMotion leap;
 Grid grid;
 Globe globe;
 PulsingSphere pulsingSphere;
@@ -11,11 +10,13 @@ RotatingAtom rotatingAtom3;
 PVector globeCenter;
 
 boolean useMouse = false;
-
+boolean sketchFullScreen() {
+  return true;
+}
 void setup()
 {
-  size(960, 560, P3D);
-  frameRate(30);
+  size(displayWidth, displayHeight, P3D);
+  frameRate(60);
   smooth();
   //leap = new LeapMotion(this);
   /*** Create Globe ***/
@@ -27,11 +28,13 @@ void setup()
   rotatingAtom1 = new RotatingAtom(globeCenter, new PVector(40, 70, 130), 30, 5);
   rotatingAtom2 = new RotatingAtom(globeCenter, new PVector(70, 130, 40), 35, 6);
   rotatingAtom3 = new RotatingAtom(globeCenter, new PVector(130, 40, 70), 25, 8);
+  
+  leap = new LeapMotion(this);
 }
 
 void draw()
 {
-  background(0);
+  background(255);
   pushMatrix();
   /*** Update background grid ***/
   grid.update();
@@ -56,7 +59,7 @@ void draw()
   pushMatrix();
   /*** Leap Motion Control ***/
   useMouse = true;
-/*
+
   if ( !leap.isConnected() )
   { 
     useMouse = true;
@@ -69,12 +72,14 @@ void draw()
     if ( leap.countHands() > 0 )
     {
       Hand firstHand = leap.getHands().get(0);
-      firstHand.draw();
+      stroke(0, 56, 111);
+      firstHand.drawSphere();
       globe.rotateHorizontally(firstHand.getPosition().x * 360 / width);
       globe.rotateVertically(firstHand.getPosition().y * 360 / height);
+      globe.zoom( firstHand.getPosition().z * 10 );
     }
   }
-*/
+
   popMatrix();
 }
 

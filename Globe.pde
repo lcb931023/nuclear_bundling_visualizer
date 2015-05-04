@@ -7,6 +7,7 @@ class Globe
   int radius = 80;
   boolean flicker = true;
   float flickerNoiseX = 0.0;
+  float leapZoom = 300;
 
   public Globe()
   {
@@ -21,7 +22,7 @@ class Globe
   // Gets called each draw();
   public void update()
   {
-    translate(width/2, height/2, 300);
+    translate(width/2, height/2, leapZoom);
     // Update Rotation
     //rotateHor+=speed;
     // Horizontal rotation
@@ -61,7 +62,8 @@ class Globe
     if (flicker)
     {
       float noiseScale = 0.3;
-      alpha = noise(flickerNoiseX * noiseScale) * 200 + 55;
+      alpha = noise(flickerNoiseX * noiseScale) * 100 + 155;
+      
       flickerNoiseX ++;
     }
     for (int lat = -90; lat < 90; lat++)
@@ -77,7 +79,7 @@ class Globe
           float y = (radius + c * 0.02) * sin(_lat) * (-1);
           float z = (radius + c * 0.02) * cos(_lat) * sin(_lng);
           // The cyan of TRON is 111, 195, 223
-          stroke(111, 195, 223, alpha);
+          stroke(0, 56, 111, alpha);
           point(x, y, z);
         }
       }
@@ -150,6 +152,7 @@ class Globe
 
   public void zoom( float z )
   {
+    leapZoom = z;
   }
 }
 

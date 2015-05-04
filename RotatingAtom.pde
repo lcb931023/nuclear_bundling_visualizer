@@ -24,7 +24,8 @@ class RotatingAtom
     /* Draw the atom */
     // Appearance
     noFill();
-    stroke(111, 195, 223, 100);
+//    stroke(111, 195, 223, 255);
+    stroke(0, 56, 111);
     // rotation
     roll += rSpeed;
     pitch += rSpeed;

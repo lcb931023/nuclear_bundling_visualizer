@@ -14,7 +14,8 @@ class Grid
   public void update()
   {
     noFill();
-    stroke(111, 195, 223, 130);
+//    stroke(111, 195, 223, 255);
+    stroke(0, 56, 111);
     for (int col = 0; col < colAmount; col ++ )
     {
       for (int row = 0; row < rowAmount; row ++)
